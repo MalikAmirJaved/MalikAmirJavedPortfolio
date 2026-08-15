@@ -25,7 +25,7 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.6, y: 12 }}
           transition={{ duration: 0.25 }}
-          className="fixed right-5 bottom-5 z-40 flex size-11 items-center justify-center rounded-full border border-border/70 bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--hard-shadow)] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_0_var(--hard-shadow)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none sm:right-8 sm:bottom-8"
+          className="pointer-fine:hover:translate-x-[1px] pointer-fine:hover:translate-y-[1px] pointer-fine:hover:shadow-[2px_2px_0_0_var(--hard-shadow)] pointer-fine:active:translate-x-[3px] pointer-fine:active:translate-y-[3px] pointer-fine:active:shadow-none fixed right-[max(1.25rem,env(safe-area-inset-right))] bottom-[max(1.25rem,env(safe-area-inset-bottom))] z-50 flex size-11 items-center justify-center rounded-full border border-border/70 bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--hard-shadow)] transition-all sm:right-8 sm:bottom-8"
         >
           <LuArrowUp className="size-5" />
         </motion.button>

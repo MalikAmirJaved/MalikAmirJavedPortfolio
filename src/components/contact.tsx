@@ -61,7 +61,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28 lg:py-32">
+    <section id="contact" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute bottom-0 left-1/2 h-[380px] w-[640px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"
@@ -86,12 +86,11 @@ export function Contact() {
                   <>
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-md border border-border bg-accent/60 text-primary">
                       <Icon className="size-5" />
-                    </div>
-                    <div className="min-w-0">
+                    </div>                      <div className="min-w-0 [overflow-wrap:anywhere]">
                       <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                         {channel.label}
                       </div>
-                      <div className="truncate text-sm font-medium">
+                      <div className="text-sm font-medium">
                         {channel.value}
                       </div>
                     </div>
@@ -143,7 +142,7 @@ export function Contact() {
           <FadeIn delay={0.1} className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="glass flex h-full flex-col gap-5 rounded-lg p-7"
+              className="glass flex h-full flex-col gap-5 rounded-lg p-5 sm:p-7"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -200,12 +199,12 @@ export function Contact() {
                 />
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-xs text-muted-foreground">
                   Submitting opens your email client with the message
                   pre-filled — no data leaves your device.
                 </p>
-                <Button type="submit" size="lg" className="min-w-36">
+                <Button type="submit" size="lg" className="w-full sm:w-auto sm:min-w-36">
                   {sent ? (
                     <>
                       <LuCheck className="size-4" />

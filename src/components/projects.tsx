@@ -23,7 +23,7 @@ export function ProjectsSection({ covers }: ProjectsSectionProps) {
   }, [active]);
 
   return (
-    <section id="projects" className="relative py-20 sm:py-28 lg:py-32">
+    <section id="projects" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 right-[-160px] h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl"
