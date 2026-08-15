@@ -47,7 +47,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-cyan-600 font-bold text-white shadow-md transition-transform group-hover:scale-105">
+          <span className="flex size-8 items-center justify-center rounded-md bg-primary font-mono text-sm font-bold text-primary-foreground shadow-[2px_2px_0_0_var(--hard-shadow)] transition-transform group-hover:scale-105">
             AJ
           </span>
           <span className="hidden text-sm font-semibold tracking-tight sm:block">
@@ -60,9 +60,8 @@ export function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
-              className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-            >
+              href={link.href}            className="rounded-full px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+          >
               {link.label}
             </a>
           ))}
@@ -73,7 +72,7 @@ export function Navbar() {
           <a
             href={site.resumeUrl}
             download
-            className="hidden items-center gap-1.5 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 md:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-primary px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary-foreground shadow-[2px_2px_0_0_var(--hard-shadow)] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_0_var(--hard-shadow)] md:inline-flex"
           >
             <LuDownload className="size-4" />
             CV
@@ -113,7 +112,7 @@ export function Navbar() {
               <a
                 href={site.resumeUrl}
                 download
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 text-base font-medium text-primary-foreground"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-3 py-2.5 font-mono text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-[2px_2px_0_0_var(--hard-shadow)]"
               >
                 <LuDownload className="size-4" />
                 Download CV

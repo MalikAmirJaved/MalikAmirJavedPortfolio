@@ -16,10 +16,10 @@ export function Footer() {
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 sm:px-6 md:flex-row md:justify-between">
         <div className="flex items-center gap-2">
-          <span className="flex size-7 items-center justify-center rounded-md bg-gradient-to-br from-sky-400 to-cyan-600 text-xs font-bold text-white">
+          <span className="flex size-7 items-center justify-center rounded-md bg-primary font-mono text-xs font-bold text-primary-foreground">
             AJ
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="font-mono text-xs text-muted-foreground">
             © {site.copyrightYear} {site.name}
           </span>
         </div>
@@ -29,7 +29,7 @@ export function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -42,14 +42,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="flex size-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-all hover:border-cyan-500/50 hover:text-foreground"
+            className="flex size-9 items-center justify-center rounded-full border border-border/70 text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground"
           >
             <FaGithub className="size-4" />
           </a>
           <a
             href={`mailto:${site.email}`}
             aria-label="Email"
-            className="flex size-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-all hover:border-cyan-500/50 hover:text-foreground"
+            className="flex size-9 items-center justify-center rounded-full border border-border/70 text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground"
           >
             <LuMail className="size-4" />
           </a>

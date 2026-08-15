@@ -30,7 +30,6 @@ import { BsChatDots } from "react-icons/bs";
 export type SkillGroup = {
   title: string;
   icon: IconType;
-  accent: string; // tailwind gradient classes for the icon chip
   skills: string[];
 };
 
@@ -38,7 +37,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Backend",
     icon: SiDjango,
-    accent: "from-emerald-400 to-teal-600",
     skills: [
       "Django REST Framework",
       "Daphne",
@@ -52,7 +50,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Frontend",
     icon: SiReact,
-    accent: "from-sky-400 to-cyan-600",
     skills: [
       "React.js",
       "Next.js",
@@ -67,7 +64,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Desktop",
     icon: SiElectron,
-    accent: "from-indigo-400 to-violet-600",
     skills: [
       "Electron.js",
       ".NET 10 / Avalonia (C#) — currently learning",
@@ -76,13 +72,11 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Databases",
     icon: SiPostgresql,
-    accent: "from-blue-400 to-sky-600",
     skills: ["PostgreSQL", "MongoDB", "SQLite", "Redis"],
   },
   {
     title: "DevOps / Infra",
     icon: SiLinux,
-    accent: "from-amber-400 to-orange-600",
     skills: [
       "Linux Server Deployment",
       "Nginx",
@@ -93,7 +87,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
     icon: TbLanguage,
-    accent: "from-rose-400 to-pink-600",
     skills: ["Urdu (Native)", "English (Professional)"],
   },
 ];

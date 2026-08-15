@@ -21,8 +21,8 @@ export function ThemeToggle() {
       onClick={toggle}
       className="rounded-full"
     >
-      <LuSun className="size-5 text-amber-300 dark:hidden" />
-      <LuMoon className="size-5 hidden text-slate-500 dark:block" />
+      <LuSun className="size-5 text-muted-foreground dark:hidden" />
+      <LuMoon className="size-5 hidden text-muted-foreground dark:block" />
     </Button>
   );
 }

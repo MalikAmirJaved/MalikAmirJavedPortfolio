@@ -41,11 +41,11 @@ export function Hero() {
       {/* Radial glow accents */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-120px] bottom-[-120px] h-[380px] w-[380px] rounded-full bg-sky-600/10 blur-3xl"
+        className="pointer-events-none absolute right-[-120px] bottom-[-120px] h-[380px] w-[380px] rounded-full bg-primary/10 blur-3xl"
       />
 
       {/* Floating tech badges (desktop) */}
@@ -56,7 +56,7 @@ export function Hero() {
           return (
             <motion.div
               key={name}
-              className="absolute flex items-center gap-1.5 rounded-full border border-border/60 bg-card/70 px-3 py-1.5 text-xs font-medium shadow-sm backdrop-blur"
+              className="absolute flex items-center gap-1.5 rounded-full border border-border/70 bg-card/80 px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground shadow-sm"
               style={pos as React.CSSProperties}
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
@@ -71,7 +71,7 @@ export function Hero() {
                 },
               }}
             >
-              {Icon && <Icon className="size-3.5 text-cyan-500" />}
+              {Icon && <Icon className="size-3.5 text-primary" />}
               {name}
             </motion.div>
           );
@@ -85,7 +85,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge variant="cyan" className="mb-5 gap-2 px-3.5 py-1.5 text-sm">
+            <Badge variant="accent" className="mb-6 gap-2 px-3.5 py-1.5 text-xs">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
@@ -94,25 +94,33 @@ export function Hero() {
             </Badge>
           </motion.div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground"
+          >
+            {site.role} — {site.location}
+          </motion.p>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+            className="font-serif text-5xl font-medium tracking-tight text-balance sm:text-6xl lg:text-7xl lg:leading-[1.02]"
           >
-            Hi, I&apos;m{" "}
-            <span className="text-gradient">Amir Javed</span>
+            Hi, I&apos;m <span className="text-gradient italic">Amir Javed</span>
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="mt-4 flex h-8 items-center justify-center gap-2 font-mono text-lg text-cyan-600 dark:text-cyan-400 sm:text-2xl"
+            className="mt-5 flex h-8 items-center justify-center gap-2 font-mono text-lg text-primary sm:text-2xl"
           >
             <span className="text-muted-foreground">&gt;_</span>
             <span>{typed}</span>
-            <span className="ml-0.5 inline-block h-6 w-0.5 animate-pulse bg-cyan-500 sm:h-7" />
+            <span className="ml-0.5 inline-block h-6 w-0.5 animate-pulse bg-primary sm:h-7" />
           </motion.div>
 
           <motion.p
@@ -128,7 +136,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
-            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button size="lg" asChild>
               <a href="#projects">
@@ -148,7 +156,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.75 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-xs text-muted-foreground"
           >
             <a
               href={site.github}

@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
   eyebrow?: string;
+  /** Section number rendered as "// 01" before the eyebrow */
+  index?: number;
   title: string;
   description?: string;
   className?: string;
@@ -9,6 +11,7 @@ type SectionHeadingProps = {
 
 export function SectionHeading({
   eyebrow,
+  index,
   title,
   description,
   className,
@@ -16,12 +19,18 @@ export function SectionHeading({
   return (
     <div className={cn("mx-auto max-w-2xl text-center", className)}>
       {eyebrow && (
-        <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium tracking-wide text-cyan-600 uppercase dark:text-cyan-400">
-          <span className="size-1.5 rounded-full bg-cyan-500" />
-          {eyebrow}
+        <span className="mb-4 inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="text-primary">{"//"}</span>
+          {index !== undefined && (
+            <span className="text-primary">
+              {String(index).padStart(2, "0")}
+            </span>
+          )}
+          <span>{eyebrow}</span>
+          <span className="hidden h-px w-8 bg-border sm:block" />
         </span>
       )}
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 className="font-serif text-3xl font-medium tracking-tight text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
         {title}
       </h2>
       {description && (

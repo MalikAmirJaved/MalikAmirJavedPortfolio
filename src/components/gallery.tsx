@@ -29,12 +29,15 @@ export function Gallery({ images }: GalleryProps) {
 
   return (
     <div>
-      <h3 className="mb-4 text-xl font-semibold">
+      <h3 className="mb-2 font-serif text-2xl font-medium">
         Screenshots{" "}
-        <span className="text-sm font-normal text-muted-foreground">
+        <span className="font-mono text-sm text-muted-foreground">
           ({images.length})
         </span>
       </h3>
+      <p className="mb-6 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+        {"// Click to view full size"}
+      </p>
 
       {/* Thumbnail grid */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -44,7 +47,7 @@ export function Gallery({ images }: GalleryProps) {
               <button
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                className="group relative block aspect-[16/10] overflow-hidden rounded-xl border border-border/60 transition-all hover:border-cyan-500/50"
+                className="group relative block aspect-[16/10] overflow-hidden rounded-md border border-border/70 transition-all hover:border-primary/50"
                 aria-label={`Open screenshot ${i + 1}`}
               >
                 <Image
@@ -66,7 +69,7 @@ export function Gallery({ images }: GalleryProps) {
                 className="relative"
                 role="presentation"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-black/90">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-black/90">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={active.src}
@@ -105,21 +108,26 @@ export function Gallery({ images }: GalleryProps) {
                   <LuChevronRight className="size-5" />
                 </button>
 
-                <div className="mt-3 flex items-center justify-center gap-1.5">
-                  {images.map((img, i) => (
-                    <button
-                      key={img.src}
-                      type="button"
-                      onClick={() => setActiveIndex(i)}
-                      aria-label={`Go to screenshot ${i + 1}`}
-                      className={cn(
-                        "size-2 rounded-full transition-all",
-                        i === activeIndex
-                          ? "w-6 bg-cyan-500"
-                          : "bg-white/40 hover:bg-white/70"
-                      )}
-                    />
-                  ))}
+                <div className="mt-3 flex flex-col items-center gap-2">
+                  <div className="flex items-center justify-center gap-1.5">
+                    {images.map((img, i) => (
+                      <button
+                        key={img.src}
+                        type="button"
+                        onClick={() => setActiveIndex(i)}
+                        aria-label={`Go to screenshot ${i + 1}`}
+                        className={cn(
+                          "size-2 rounded-full transition-all",
+                          i === activeIndex
+                            ? "w-6 bg-primary"
+                            : "bg-white/40 hover:bg-white/70"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  <span className="font-mono text-[11px] tracking-wider text-white/70">
+                    {activeIndex + 1} / {images.length}
+                  </span>
                 </div>
               </div>
             </DialogContent>

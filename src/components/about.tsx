@@ -2,6 +2,7 @@ import { LuBuilding2, LuMapPin, LuRocket, LuGraduationCap } from "react-icons/lu
 
 import { SectionHeading } from "@/components/section-heading";
 import { FadeIn } from "@/components/fade-in";
+import { StatCounter } from "@/components/stat-counter";
 import { site } from "@/data/site";
 
 const highlights = [
@@ -36,6 +37,7 @@ export function About() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <SectionHeading
+            index={1}
             eyebrow="About Me"
             title="Full-stack engineer turning complex problems into shipped products"
             description="I build scalable, production-grade systems — from real-time APIs and multi-tenant dashboards to cross-platform desktop agents."
@@ -44,10 +46,12 @@ export function About() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           <FadeIn className="lg:col-span-1" delay={0.05}>
-            <div className="glass flex h-full flex-col justify-between rounded-2xl p-7">
+            <div className="flex h-full flex-col justify-between rounded-lg border border-border/70 bg-card p-7">
               <div>
-                <h3 className="text-xl font-semibold">{site.name}</h3>
-                <p className="mt-1 text-sm text-cyan-600 dark:text-cyan-400">
+                <h3 className="font-serif text-xl font-medium">
+                  {site.name}
+                </h3>
+                <p className="mt-1 font-mono text-xs uppercase tracking-wider text-primary">
                   {site.role}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -63,12 +67,12 @@ export function About() {
                 {site.stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl border border-border/60 bg-background/60 p-4 text-center"
+                    className="rounded-lg border border-border/70 bg-background/60 p-4 text-center"
                   >
-                    <div className="text-2xl font-bold text-gradient">
-                      {stat.value}
+                    <div className="font-serif text-3xl font-medium text-primary">
+                      <StatCounter value={stat.value} />
                     </div>
-                    <div className="mt-1 text-xs text-muted-foreground">
+                    <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       {stat.label}
                     </div>
                   </div>
@@ -82,8 +86,8 @@ export function About() {
               const Icon = item.icon;
               return (
                 <FadeIn key={item.title} delay={0.1 + i * 0.08}>
-                  <div className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card/50 p-6 transition-all hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/5">
-                    <div className="mb-4 flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400/15 to-cyan-600/15 text-cyan-500 transition-transform group-hover:scale-110">
+                  <div className="group flex h-full flex-col rounded-lg border border-border/70 bg-card/50 p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+                    <div className="mb-4 flex size-11 items-center justify-center rounded-md border border-border bg-accent/60 text-primary transition-transform group-hover:scale-110">
                       <Icon className="size-5" />
                     </div>
                     <h4 className="text-base font-semibold">{item.title}</h4>

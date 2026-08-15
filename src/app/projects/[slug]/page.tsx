@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="bg-grid absolute inset-0" aria-hidden />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
         />
 
         {cover && (
@@ -78,35 +78,35 @@ export default async function ProjectPage({ params }: Props) {
           <FadeIn>
             <Link
               href="/#projects"
-              className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="mb-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
             >
               <LuArrowLeft className="size-4" />
               Back to all projects
             </Link>
 
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="cyan">{project.category}</Badge>
+              <Badge variant="accent">{project.category}</Badge>
               <Badge variant="secondary">{project.status}</Badge>
             </div>
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl font-serif text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl lg:leading-[1.05]">
               {project.title}
             </h1>
 
-            <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <LuBuilding2 className="size-4" />
+                <LuBuilding2 className="size-4 text-primary" />
                 {project.company}
               </span>
               {project.companyType && (
                 <span className="inline-flex items-center gap-1.5">
-                  <LuLayers className="size-4" />
+                  <LuLayers className="size-4 text-primary" />
                   {project.companyType}
                 </span>
               )}
             </p>
 
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {project.shortDescription}
             </p>
           </FadeIn>
@@ -116,9 +116,9 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         {/* Tech stack */}
         <FadeIn>
-          <div className="rounded-2xl border border-border/60 bg-card/50 p-6">
-            <h2 className="mb-4 text-sm font-semibold tracking-wide text-muted-foreground uppercase">
-              Tech Stack
+          <div className="rounded-lg border border-border/70 bg-card/50 p-6">
+            <h2 className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              {"// Tech Stack"}
             </h2>
             <div className="flex flex-wrap gap-2.5">
               {project.tech.map((tech) => {
@@ -126,9 +126,9 @@ export default async function ProjectPage({ params }: Props) {
                 return (
                   <span
                     key={tech}
-                    className="inline-flex items-center gap-2 rounded-lg border border-border/60 bg-background/60 px-3 py-1.5 text-sm"
+                    className="inline-flex items-center gap-2 rounded-md border border-border/70 bg-background/60 px-3 py-1.5 text-sm"
                   >
-                    {Icon && <Icon className="size-4 text-cyan-500" />}
+                    {Icon && <Icon className="size-4 text-primary" />}
                     {tech}
                   </span>
                 );
@@ -142,7 +142,7 @@ export default async function ProjectPage({ params }: Props) {
           <div className="space-y-10 lg:col-span-3">
             <FadeIn>
               <div>
-                <h2 className="mb-3 text-xl font-semibold">
+                <h2 className="mb-3 font-serif text-2xl font-medium">
                   About this project
                 </h2>
                 <p className="leading-relaxed text-muted-foreground">
@@ -154,14 +154,16 @@ export default async function ProjectPage({ params }: Props) {
             {project.highlights && project.highlights.length > 0 && (
               <FadeIn delay={0.05}>
                 <div>
-                  <h2 className="mb-4 text-xl font-semibold">Key Highlights</h2>
+                  <h2 className="mb-4 font-serif text-2xl font-medium">
+                    Key Highlights
+                  </h2>
                   <ul className="space-y-3">
                     {project.highlights.map((h) => (
                       <li
                         key={h}
-                        className="flex gap-3 rounded-xl border border-border/60 bg-card/40 p-4 text-sm leading-relaxed text-muted-foreground"
+                        className="flex gap-3 rounded-md border border-border/70 bg-card/40 p-4 text-sm leading-relaxed text-muted-foreground"
                       >
-                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-500" />
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                         {h}
                       </li>
                     ))}
@@ -171,13 +173,13 @@ export default async function ProjectPage({ params }: Props) {
             )}
 
             <FadeIn delay={0.05}>
-              <div className="rounded-2xl border border-border/60 bg-card/40 p-6">
-                <h2 className="mb-1 flex items-center gap-2 text-xl font-semibold">
-                  <LuFolder className="size-5 text-cyan-500" />
+              <div className="rounded-lg border border-border/70 bg-card/40 p-6">
+                <h2 className="mb-1 flex items-center gap-2 font-serif text-2xl font-medium">
+                  <LuFolder className="size-5 text-primary" />
                   Module Tree
                 </h2>
-                <p className="mb-4 text-sm text-muted-foreground">
-                  Click a module to expand its sub-modules.
+                <p className="mb-4 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                  {"// Click a module to expand"}
                 </p>
                 <ModuleTree tree={project.moduleTree} />
               </div>
@@ -187,46 +189,50 @@ export default async function ProjectPage({ params }: Props) {
           {/* Right: overview card */}
           <aside className="lg:col-span-2">
             <FadeIn delay={0.1}>
-              <div className="glass rounded-2xl p-6 lg:sticky lg:top-24">
-                <h2 className="mb-5 text-lg font-semibold">Project Overview</h2>
+              <div className="rounded-lg border border-border/70 bg-card p-6 lg:sticky lg:top-24">
+                <h2 className="mb-5 font-serif text-xl font-medium">
+                  Project Overview
+                </h2>
 
                 <dl className="space-y-4 text-sm">
                   <div>
-                    <dt className="text-xs tracking-wide text-muted-foreground uppercase">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Status
                     </dt>
                     <dd className="mt-1 font-medium">{project.status}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs tracking-wide text-muted-foreground uppercase">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Company
                     </dt>
                     <dd className="mt-1 font-medium">{project.company}</dd>
                   </div>
                   {project.companyType && (
                     <div>
-                      <dt className="text-xs tracking-wide text-muted-foreground uppercase">
+                      <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                         Type
                       </dt>
                       <dd className="mt-1 font-medium">{project.companyType}</dd>
                     </div>
                   )}
                   <div>
-                    <dt className="text-xs tracking-wide text-muted-foreground uppercase">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Category
                     </dt>
                     <dd className="mt-1 font-medium">{project.category}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs tracking-wide text-muted-foreground uppercase">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Screenshots
                     </dt>
                     <dd className="mt-1 font-medium">{images.length}</dd>
                   </div>
                 </dl>
 
-                <div className="mt-6 border-t border-border/60 pt-5">
-                  <h3 className="mb-3 text-sm font-semibold">Built with</h3>
+                <div className="mt-6 border-t border-border/70 pt-5">
+                  <h3 className="mb-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    Built with
+                  </h3>
                   <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((tech) => (
                       <Badge key={tech} variant="secondary">

@@ -64,11 +64,12 @@ export function Contact() {
     <section id="contact" className="relative py-20 sm:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[380px] w-[640px] -translate-x-1/2 rounded-full bg-cyan-500/5 blur-3xl"
+        className="pointer-events-none absolute bottom-0 left-1/2 h-[380px] w-[640px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"
       />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <SectionHeading
+            index={5}
             eyebrow="Contact"
             title="Let's build something together"
             description="Whether you have a project in mind, a role to fill, or just want to say hi — my inbox is open."
@@ -83,11 +84,11 @@ export function Contact() {
                 const Icon = channel.icon;
                 const content = (
                   <>
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400/15 to-cyan-600/15 text-cyan-500">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-md border border-border bg-accent/60 text-primary">
                       <Icon className="size-5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-xs tracking-wide text-muted-foreground uppercase">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                         {channel.label}
                       </div>
                       <div className="truncate text-sm font-medium">
@@ -101,7 +102,7 @@ export function Contact() {
                 );
 
                 const classes =
-                  "flex items-center gap-4 rounded-2xl border border-border/60 bg-card/50 p-5 transition-all hover:-translate-y-0.5 hover:border-cyan-500/40";
+                  "flex items-center gap-4 rounded-lg border border-border/70 bg-card/50 p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40";
 
                 return channel.href ? (
                   <a
@@ -120,13 +121,13 @@ export function Contact() {
                 );
               })}
 
-              <div className="mt-2 rounded-2xl border border-emerald-500/25 bg-emerald-500/5 p-5">
+              <div className="mt-2 rounded-lg border border-primary/30 bg-primary/5 p-5">
                 <div className="flex items-center gap-2">
                   <span className="relative flex size-2.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
                   </span>
-                  <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
                     Currently open to opportunities
                   </span>
                 </div>
@@ -142,7 +143,7 @@ export function Contact() {
           <FadeIn delay={0.1} className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="glass flex h-full flex-col gap-5 rounded-2xl p-7"
+              className="glass flex h-full flex-col gap-5 rounded-lg p-7"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -159,7 +160,7 @@ export function Contact() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
-                    className="w-full rounded-lg border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20"
+                    className="w-full rounded-md border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
                 <div>
@@ -176,7 +177,7 @@ export function Contact() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full rounded-lg border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20"
+                    className="w-full rounded-md border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
               </div>
@@ -195,7 +196,7 @@ export function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell me about your project or opportunity..."
-                  className="w-full resize-none rounded-lg border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/20"
+                  className="w-full resize-none rounded-md border border-input bg-background/60 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 

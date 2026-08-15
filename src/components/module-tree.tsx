@@ -22,7 +22,7 @@ function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
         className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-muted-foreground"
         style={{ paddingLeft: `${depth * 1.1}rem` }}
       >
-        <LuFileCode2 className="size-3.5 shrink-0 text-cyan-500/70" />
+        <LuFileCode2 className="size-3.5 shrink-0 text-primary/70" />
         <span className="truncate">{node.name}</span>
       </div>
     );
@@ -35,7 +35,7 @@ function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
         style={{ paddingLeft: `${depth * 1.1}rem` }}
       >
         <span className="flex min-w-0 items-center gap-2">
-          <LuFolderOpen className="size-4 shrink-0 text-cyan-500" />
+          <LuFolderOpen className="size-4 shrink-0 text-primary" />
           <span className="truncate font-medium">{node.name}</span>
         </span>
       </AccordionTrigger>
@@ -53,8 +53,8 @@ function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
 export function ModuleTree({ tree }: ModuleTreeProps) {
   return (
     <Accordion type="multiple" className="w-full">
-      <div className="mb-2 flex items-center gap-2 px-2 text-sm font-semibold">
-        <LuFolder className="size-4 text-cyan-500" />
+      <div className="mb-2 flex items-center gap-2 px-2 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+        <LuFolder className="size-4 text-primary" />
         {tree.name}
       </div>
       {tree.children?.map((child) => (

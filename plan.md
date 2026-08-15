@@ -192,34 +192,34 @@ A dark, near-black, editorial portfolio where **serif voice + mono annotations +
 Current stack: Next.js 16.3.1, Tailwind v4 (CSS-first config in `globals.css`), shadcn-style tokens already in place, Framer Motion, next-themes, react-icons. Content + routes stay unchanged — this is a **theming + component restyle**, not a rebuild.
 
 ### Phase 1 — Tokens & fonts
-- [ ] `src/app/layout.tsx`: add `next/font/google` **Source Serif 4** (variable). Keep Geist Sans + Mono. Expose `--font-serif`.
-- [ ] `src/app/globals.css`: replace color tokens (3.1 table), set `--radius: 0.5rem`, add `--font-serif` to `@theme inline`, remove `.text-gradient` cyan + `.glass` heavy blur (replace with hairline `.border-default` helper + slim navbar blur). Keep dot-grid only as an ultra-subtle option; default canvas plain.
-- [ ] Add utilities: `.font-serif` display class, `.eyebrow` (mono, uppercase, tracked), hard-shadow button tokens, marquee keyframes.
+- [x] `src/app/layout.tsx`: add `next/font/google` **Source Serif 4** (variable). Keep Geist Sans + Mono. Expose `--font-serif`.
+- [x] `src/app/globals.css`: replace color tokens (3.1 table), set `--radius: 0.5rem`, add `--font-serif` to `@theme inline`, remove `.text-gradient` cyan + `.glass` heavy blur (replace with hairline `.border-default` helper + slim navbar blur). Keep dot-grid only as an ultra-subtle option; default canvas plain.
+- [x] Add utilities: `.font-serif` display class, `.eyebrow` (mono, uppercase, tracked), hard-shadow button tokens, marquee keyframes.
 
 ### Phase 2 — Shared components
-- [ ] `button.tsx`: add `hard` variant — solid acid/ink + offset shadow + press-down transform.
-- [ ] `section-heading.tsx`: render `// 0X — Label` mono eyebrow + serif title (needs section index or explicit number).
-- [ ] New `marquee.tsx`: slow infinite word strip (pause on reduced motion).
-- [ ] `badge.tsx`: mono, hairline-bordered tags.
+- [x] `button.tsx`: add `hard` variant — solid acid/ink + offset shadow + press-down transform.
+- [x] `section-heading.tsx`: render `// 0X — Label` mono eyebrow + serif title (needs section index or explicit number).
+- [x] New `marquee.tsx`: slow infinite word strip (pause on reduced motion).
+- [x] `badge.tsx`: mono, hairline-bordered tags.
 
 ### Phase 3 — Home page restyle
-- [ ] `hero.tsx`: giant serif headline, mono eyebrow, typing line restyled, hard-shadow CTAs, acid "Open to Opportunities" badge; floating tech badges keep but restyled flat/hairline.
-- [ ] Insert `marquee` between Hero and About.
-- [ ] `about.tsx`: serif pull-quote, hairline stats with animated counters (Sidrano).
-- [ ] `skills.tsx`: mono eyebrows per group, hairline cards, acid icon badges.
-- [ ] `projects.tsx` / `project-card.tsx`: **editorial numbered rows** (Grafio) on desktop with hover reveal; filter tabs restyled as pill/underline tabs; mobile falls back to stacked rows.
-- [ ] `experience.tsx`: timeline with mono dates, hairline connectors.
-- [ ] `contact.tsx`: hard-shadow submit, mono labels, pill channel cards.
-- [ ] `navbar.tsx` + `footer.tsx`: hairline border, mono logo mark `AJ`, slim blur.
+- [x] `hero.tsx`: giant serif headline, mono eyebrow, typing line restyled, hard-shadow CTAs, acid "Open to Opportunities" badge; floating tech badges keep but restyled flat/hairline.
+- [x] Insert `marquee` between Hero and About.
+- [x] `about.tsx`: serif pull-quote, hairline stats with animated counters (Sidrano).
+- [x] `skills.tsx`: mono eyebrows per group, hairline cards, acid icon badges.
+- [x] `projects.tsx` / `project-card.tsx`: **editorial numbered rows** (Grafio) on desktop with hover reveal; filter tabs restyled as pill/underline tabs; mobile falls back to stacked rows.
+- [x] `experience.tsx`: timeline with mono dates, hairline connectors.
+- [x] `contact.tsx`: hard-shadow submit, mono labels, pill channel cards.
+- [x] `navbar.tsx` + `footer.tsx`: hairline border, mono logo mark `AJ`, slim blur.
 
 ### Phase 4 — Project detail pages
-- [ ] `src/app/projects/[slug]/page.tsx`: serif title, mono metadata rows (status/company/stack), hard-shadow "View Live / GitHub" CTA.
-- [ ] `module-tree.tsx`: mono accordion headers, hairline dividers.
-- [ ] `gallery.tsx`: hairline frames, mono counters (`04 / 12`).
+- [x] `src/app/projects/[slug]/page.tsx`: serif title, mono metadata rows (status/company/stack), hard-shadow "View Live / GitHub" CTA.
+- [x] `module-tree.tsx`: mono accordion headers, hairline dividers.
+- [x] `gallery.tsx`: hairline frames, mono counters (`04 / 12`).
 
 ### Phase 5 — Verify
-- [ ] `npm run build` + `npm run lint` clean.
-- [ ] Spot-check dark + light modes, all 6 project pages, mobile nav.
+- [x] `npm run build` + `npm run lint` clean.
+- [x] Spot-check dark + light modes, all 6 project pages, mobile nav.
 
 **Out of scope (keep as-is):** content/data (`src/data/`), routes, SEO metadata, resume.pdf, image handling.
 

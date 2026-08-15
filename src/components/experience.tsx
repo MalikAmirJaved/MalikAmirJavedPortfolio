@@ -52,6 +52,7 @@ export function Experience() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <FadeIn>
           <SectionHeading
+            index={4}
             eyebrow="Experience"
             title="My journey so far"
             description="From intern to junior developer — building production systems used by real clients."
@@ -62,7 +63,7 @@ export function Experience() {
           {/* Timeline line */}
           <div
             aria-hidden
-            className="absolute top-0 bottom-0 left-4 w-px bg-gradient-to-b from-cyan-500/60 via-border to-transparent sm:left-1/2"
+            className="absolute top-0 bottom-0 left-4 w-px bg-gradient-to-b from-primary/60 via-border to-transparent sm:left-1/2"
           />
 
           <div className="space-y-12">
@@ -80,28 +81,30 @@ export function Experience() {
                   >
                     {/* Node */}
                     <div
-                      className={`absolute top-1 left-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border border-cyan-500/40 bg-background shadow-md sm:left-auto ${
+                      className={`absolute top-1 left-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border border-primary/40 bg-background shadow-md sm:left-auto ${
                         leftSide
                           ? "sm:right-0 sm:translate-x-1/2"
                           : "sm:left-0 sm:-translate-x-1/2"
                       }`}
                     >
-                      <Icon className="size-4 text-cyan-500" />
+                      <Icon className="size-4 text-primary" />
                     </div>
 
-                    <div className="glass rounded-2xl p-6">
+                    <div className="rounded-lg border border-border/70 bg-card p-6">
                       <div
                         className={`flex flex-wrap items-center gap-2 ${
                           leftSide ? "sm:justify-end" : ""
                         }`}
                       >
-                        {item.current && <Badge variant="cyan">Current</Badge>}
+                        {item.current && <Badge variant="accent">Current</Badge>}
                         <span className="font-mono text-xs text-muted-foreground">
                           {item.period}
                         </span>
                       </div>
-                      <h3 className="mt-2 text-lg font-semibold">{item.role}</h3>
-                      <p className="mt-0.5 text-sm text-cyan-600 dark:text-cyan-400">
+                      <h3 className="mt-2 font-serif text-lg font-medium">
+                        {item.role}
+                      </h3>
+                      <p className="mt-0.5 font-mono text-xs uppercase tracking-wider text-primary">
                         {item.company} · {item.location}
                       </p>
                       <ul
@@ -112,7 +115,7 @@ export function Experience() {
                         {item.points.map((point) => (
                           <li key={point} className="flex gap-2 sm:justify-start">
                             <span
-                              className={`mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-500 ${
+                              className={`mt-1.5 size-1.5 shrink-0 rounded-full bg-primary ${
                                 leftSide ? "sm:order-2" : ""
                               }`}
                             />
