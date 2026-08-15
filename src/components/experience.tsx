@@ -48,7 +48,7 @@ const experiences: ExperienceItem[] = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-20 sm:py-28">
+    <section id="experience" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <FadeIn>
           <SectionHeading

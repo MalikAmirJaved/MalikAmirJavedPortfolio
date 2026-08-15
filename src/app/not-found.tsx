@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <section className="bg-grid relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-24 pb-16">
+    <section className="bg-grid relative flex min-h-svh items-center justify-center overflow-hidden px-4 pt-24 pb-16">
       <div
         aria-hidden
         className="pointer-events-none absolute top-1/3 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"

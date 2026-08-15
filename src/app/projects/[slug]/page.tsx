@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       {/* Hero banner */}
-      <section className="relative flex min-h-[420px] items-end overflow-hidden pt-24 pb-12">
+      <section className="relative flex min-h-[420px] items-end overflow-hidden pt-24 pb-12 sm:min-h-[480px]">
         <div className="bg-grid absolute inset-0" aria-hidden />
         <div
           aria-hidden

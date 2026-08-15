@@ -33,7 +33,7 @@ const highlights = [
 
 export function About() {
   return (
-    <section id="about" className="relative py-20 sm:py-28">
+    <section id="about" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FadeIn>
           <SectionHeading

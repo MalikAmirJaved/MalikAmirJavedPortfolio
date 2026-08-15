@@ -61,7 +61,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-28">
+    <section id="contact" className="relative py-20 sm:py-28 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute bottom-0 left-1/2 h-[380px] w-[640px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"
@@ -79,7 +79,7 @@ export function Contact() {
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           {/* Contact channels */}
           <FadeIn className="lg:col-span-2">
-            <div className="flex h-full flex-col gap-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {contactChannels.map((channel) => {
                 const Icon = channel.icon;
                 const content = (
@@ -121,7 +121,7 @@ export function Contact() {
                 );
               })}
 
-              <div className="mt-2 rounded-lg border border-primary/30 bg-primary/5 p-5">
+              <div className="rounded-lg border border-primary/30 bg-primary/5 p-5 sm:col-span-2 lg:col-span-1">
                 <div className="flex items-center gap-2">
                   <span className="relative flex size-2.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />

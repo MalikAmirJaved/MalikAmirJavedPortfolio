@@ -13,6 +13,9 @@ type ModuleTreeProps = {
   tree: ModuleNode;
 };
 
+// Cap indentation so deep module trees (ERP is 4 levels) stay readable on phones
+const indent = (depth: number) => `${Math.min(depth * 1.1, 3.4)}rem`;
+
 function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
   const hasChildren = !!node.children?.length;
 
@@ -20,7 +23,7 @@ function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
     return (
       <div
         className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-muted-foreground"
-        style={{ paddingLeft: `${depth * 1.1}rem` }}
+        style={{ paddingLeft: indent(depth) }}
       >
         <LuFileCode2 className="size-3.5 shrink-0 text-primary/70" />
         <span className="truncate">{node.name}</span>
@@ -32,7 +35,7 @@ function ModuleBranch({ node, depth }: { node: ModuleNode; depth: number }) {
     <AccordionItem value={node.name} className="border-transparent">
       <AccordionTrigger
         className="hover:no-underline"
-        style={{ paddingLeft: `${depth * 1.1}rem` }}
+        style={{ paddingLeft: indent(depth) }}
       >
         <span className="flex min-w-0 items-center gap-2">
           <LuFolderOpen className="size-4 shrink-0 text-primary" />

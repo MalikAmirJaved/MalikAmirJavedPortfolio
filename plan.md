@@ -229,3 +229,49 @@ Current stack: Next.js 16.3.1, Tailwind v4 (CSS-first config in `globals.css`), 
 - Project Go tokens/fonts: `--ink #171714`, `--paper #f6f6f2`, `--acid #c8ff46`, Geist Variable + JetBrains Mono Variable, hero `4.75rem/850/lh:1`, hard-shadow button transform.
 - Sidrano tokens: `--sd-accent #b92516`, Chivo Mono display, h1 up to 210px with tracking `-12px`, numbered `//00N-` labels, marquee + stat counters.
 - Grafio tokens: neutral-950 canvas, semantic shadcn scale, `--radius .5rem`, Source Serif 4 (normal weight, lh 1), numbered project rows, hairline borders.
+
+---
+
+# Part 6 — Responsive Polish + Hero Redesign
+
+**Goal:** make every breakpoint (phone → tablet → laptop → desktop/wide) feel intentional, and redesign the hero from the centered poster into an editorial split layout that stays strong from 320px to 4K.
+
+## 6.1 Responsiveness audit (done — findings)
+
+| # | Issue | Where | Severity |
+|---|---|---|---|
+| 1 | Typing line has **fixed `h-8`** — long phrase (`Django & React Specialist`, 25 chars) overflows/wraps and breaks layout on ≤360px phones | hero | 🔴 real bug |
+| 2 | Badges are `whitespace-nowrap` + `overflow-hidden` — long skill names (`.NET 10 / Avalonia (C#)…`, `English (Professional)`) get **clipped**, not wrapped | ui/badge → skills | 🔴 real bug |
+| 3 | Module-tree deep indent (`depth × 1.1rem`, ERP tree is 4 levels) squeezes names to a sliver on narrow phones | module-tree | 🟡 polish |
+| 4 | Contact channels stack full-width in a single column below `lg` — long vertical scroll on tablet portrait | contact | 🟡 polish |
+| 5 | Sections use `py-20 sm:py-28` — no further step for laptop/desktop (24″+ looks cramped) | all sections | 🟡 polish |
+| 6 | Hero/detail-hero/not-found use `min-h-screen` — mobile URL-bar jump; should be `min-h-svh` | hero, detail, 404 | 🟢 minor |
+| 7 | Hero is centered + generic; no visual anchor on mobile (floaters are `lg`-only) | hero | 🔵 redesign |
+
+**Kept (verified fine):** navbar desktop links fit at `md` (768px) — ≈594px used of 736px; mobile menu locks body scroll; gallery grid `2/3/4` cols + lightbox `92vw`; experience timeline stacks cleanly below `sm`; marquee `w-max` scrolls without wrap; project rows `grid-cols-[2.75rem_1fr]` scale down; containers `max-w-6xl` center correctly on 4K.
+
+## 6.2 Hero redesign — "Editorial split"
+
+- **Desktop (`lg`+):** two-column grid (`7/5`). Left = text column, **left-aligned** (editorial, not centered): availability badge → mono role line → giant serif H1 (`text-[2.6rem] sm:text-6xl xl:text-7xl`) → responsive typing line → tagline → CTAs → socials. Right = a **terminal/status card** (window chrome + `$ whoami / $ location / $ status / $ stack / $ current_build` mono lines) with 6 floating tech badges orbiting it.
+- **Mobile/tablet:** same text column stacked (CTAs full-width), terminal card below, then a **static wrapping tech-chip row** (replaces the invisible floaters). No absolute-positioned clutter.
+- **Typing line fix:** fluid `min-h-6 sm:min-h-8`, `whitespace-nowrap`, `text-[15px] sm:text-xl lg:text-2xl` — longest phrase = ~252px at 15px mono, fits 288px content width on a 320px phone.
+- **Scroll cue:** animated mono `scroll` indicator at bottom, `lg`-only.
+- **Viewport:** `min-h-svh` instead of `min-h-screen`.
+
+## 6.3 Other fixes
+- Badge: drop `whitespace-nowrap` + `overflow-hidden` so long labels wrap instead of clipping.
+- Module tree: cap indent at `3.3rem` (`min(depth × 1.1, 3.3)rem`).
+- Contact: channel cards become `sm:grid-cols-2` on tablet, back to single column at `lg` (availability box spans full row).
+- Sections: add `lg:py-32` step (About / Skills / Projects / Experience / Contact).
+- Detail hero: `min-h-[420px] sm:min-h-[480px]`; not-found `min-h-svh`.
+
+## 6.4 Breakpoint map (source of truth)
+
+| Breakpoint | Devices | Hero behavior | Nav |
+|---|---|---|---|
+| `< 640` (base) | phones 320–374 | stacked, CTAs full-width, chips row | hamburger |
+| `sm` 640 | phones 375–767 | stacked, 2-col contact channels | hamburger |
+| `md` 768–1023 | tablet portrait / small laptop | stacked hero (terminal card visible), desktop nav links | desktop links |
+| `lg` 1024–1279 | tablet landscape / laptop | **split hero + floaters + scroll cue**, all section grids `lg:` | desktop links |
+| `xl` 1280–1535 | laptop / desktop | hero H1 up to `7xl` | desktop links |
+| `≥1536` (2xl) | desktop / 4K | centered `max-w-6xl`, poster type | desktop links |
