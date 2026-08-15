@@ -16,12 +16,14 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 import { site } from "@/data/site";
 
+// Anchors are prefixed with "/" so they work from any page (detail pages
+// navigate to the home page and scroll; on home it's a same-page smooth scroll).
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -42,6 +44,13 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Close the menu and release the scroll lock *synchronously* so the anchor
+  // jump isn't swallowed by the still-applied overflow:hidden.
+  const closeMenu = () => {
+    document.body.style.overflow = "";
+    setOpen(false);
+  };
 
   // Close on Escape
   useEffect(() => {
@@ -157,7 +166,7 @@ export function Navbar() {
                       <a
                         key={link.href}
                         href={link.href}
-                        onClick={() => setOpen(false)}
+                        onClick={closeMenu}
                         className="group flex items-center justify-between rounded-lg border-b border-border/40 px-2 py-3.5 transition-colors last:border-b-0 hover:bg-accent/60 active:bg-accent"
                       >
                         <span className="flex min-w-0 items-center gap-3">
@@ -179,7 +188,7 @@ export function Navbar() {
                         href={site.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => setOpen(false)}
+                        onClick={closeMenu}
                         className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
                       >
                         <FaGithub className="size-4" />
@@ -187,7 +196,7 @@ export function Navbar() {
                       </a>
                       <a
                         href={`mailto:${site.email}`}
-                        onClick={() => setOpen(false)}
+                        onClick={closeMenu}
                         className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
                       >
                         <LuMail className="size-4" />
@@ -198,7 +207,7 @@ export function Navbar() {
                     <a
                       href={site.resumeUrl}
                       download
-                      onClick={() => setOpen(false)}
+                      onClick={closeMenu}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-3 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-[2px_2px_0_0_var(--hard-shadow)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                     >
                       <LuDownload className="size-4" />

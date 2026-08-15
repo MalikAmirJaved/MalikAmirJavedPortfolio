@@ -3,12 +3,13 @@ import { LuMail } from "react-icons/lu";
 
 import { site } from "@/data/site";
 
+// Anchors are prefixed with "/" so they navigate home + scroll from any page.
 const quickLinks = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Footer() {
