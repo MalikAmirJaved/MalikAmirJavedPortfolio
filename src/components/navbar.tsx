@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -45,11 +45,31 @@ export function Navbar() {
     };
   }, [open]);
 
-  // Close the menu and release the scroll lock *synchronously* so the anchor
-  // jump isn't swallowed by the still-applied overflow:hidden.
+  // Close the menu; the scroll-lock effect releases body overflow on re-render.
   const closeMenu = () => {
-    document.body.style.overflow = "";
     setOpen(false);
+  };
+
+  // Menu links: native hash jumps are silently swallowed when the body is
+  // scroll-locked and the menu is exiting, so scroll manually instead.
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    // On detail pages the target section only exists on the home page — let
+    // the browser do the full navigation to /#section (works natively).
+    if (window.location.pathname !== "/") {
+      closeMenu();
+      return;
+    }
+    e.preventDefault();
+    closeMenu();
+    const id = href.replace("/#", "");
+    // Wait for the menu exit animation + scroll unlock, then scroll manually.
+    window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      history.replaceState(null, "", href);
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 260);
   };
 
   // Close on Escape
@@ -166,7 +186,7 @@ export function Navbar() {
                       <a
                         key={link.href}
                         href={link.href}
-                        onClick={closeMenu}
+                        onClick={(e) => handleNavClick(e, link.href)}
                         className="group flex items-center justify-between rounded-lg border-b border-border/40 px-2 py-3.5 transition-colors last:border-b-0 hover:bg-accent/60 active:bg-accent"
                       >
                         <span className="flex min-w-0 items-center gap-3">
