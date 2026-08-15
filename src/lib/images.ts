@@ -21,8 +21,10 @@ export function getProjectImages(folder: string): ProjectImage[] {
     .filter((f) => IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase()))
     .sort();
 
+  const base = folder.replace(/^\/+/, "").replace(/\/+$/, "");
+
   return files.map((file, i) => ({
-    src: `/${folder}/${encodeURIComponent(file)}`,
+    src: `/${base}/${encodeURIComponent(file)}`,
     alt: `Project screenshot ${i + 1}`,
   }));
 }

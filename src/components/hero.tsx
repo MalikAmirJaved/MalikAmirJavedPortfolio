@@ -172,19 +172,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll hint */}
-      <motion.a
-        href="#about"
-        aria-label="Scroll to About section"
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:block"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity }}
-      >
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border border-muted-foreground/40 p-1.5">
-          <div className="h-2 w-1 rounded-full bg-cyan-500" />
-        </div>
-      </motion.a>
     </section>
   );
 }
