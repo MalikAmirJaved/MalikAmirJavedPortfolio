@@ -95,15 +95,15 @@ export function ProjectsSection({ covers }: ProjectsSectionProps) {
           </div>
         </FadeIn>
 
-        {/* Editorial row list */}
-        <motion.div layout className="border-b border-border/60">
+        {/* Responsive card grid — 1 col mobile / 2 tablet / 3 desktop */}
+        <motion.div layout className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           <AnimatePresence mode="popLayout">
             {filtered.length === 0 ? (
               <motion.p
                 key="empty"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="py-16 text-center font-mono text-sm text-muted-foreground"
+                className="col-span-full py-16 text-center font-mono text-sm text-muted-foreground"
               >
                 No projects in this category yet.
               </motion.p>
