@@ -191,6 +191,7 @@ export function Gallery({ images }: GalleryProps) {
                 <div
                   ref={containerRef}
                   onWheel={onWheel}
+                  onDragStart={(e) => e.preventDefault()}
                   onPointerDown={onPointerDown}
                   onPointerMove={onPointerMove}
                   onPointerUp={() => {
@@ -218,7 +219,9 @@ export function Gallery({ images }: GalleryProps) {
                   }}
                   className={cn(
                     "relative aspect-[16/10] w-full touch-none overflow-hidden rounded-md bg-black/90 select-none",
-                    zoomed ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
+                    // cursor-zoom-in is unsupported in Safari (falls back to an arrow),
+                    // so use the universally-supported hand cursor instead.
+                    zoomed ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
                   )}
                   title={zoomed ? "Drag to pan · scroll to zoom" : "Click to zoom"}
                 >
@@ -239,6 +242,7 @@ export function Gallery({ images }: GalleryProps) {
                           src={active.src}
                           alt={active.alt}
                           fill
+                          draggable={false}
                           sizes="90vw"
                           className="object-contain"
                         />
