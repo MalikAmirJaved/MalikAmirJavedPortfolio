@@ -168,13 +168,26 @@ export function Gallery({ images }: GalleryProps) {
               </button>
             </DialogTrigger>
 
-            <DialogContent className="w-[min(92vw,1200px)] max-w-none border-none bg-transparent p-0 shadow-none">
+            <DialogContent
+              className="w-auto max-w-none border-none bg-transparent p-0 shadow-none"
+              style={{ width: "min(90vw, calc(90dvh * 1.6))", maxWidth: "none" }}
+            >
               {/* Clicking the backdrop closes; clicking the image area is inert */}
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="relative"
                 role="presentation"
               >
+                {/* Hint — sits above the image so it never overlaps it */}
+                <div className="mb-2 flex h-4 items-center justify-center">
+                  {!zoomed && (
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-white/70">
+                      click to zoom · scroll to zoom in
+                    </span>
+                  )}
+                </div>
+
+                <div className="relative">
                 <div
                   ref={containerRef}
                   onWheel={onWheel}
@@ -226,19 +239,12 @@ export function Gallery({ images }: GalleryProps) {
                           src={active.src}
                           alt={active.alt}
                           fill
-                          sizes="92vw"
+                          sizes="90vw"
                           className="object-contain"
                         />
                       </motion.div>
                     </AnimatePresence>
                   </motion.div>
-
-                  {/* Zoom hint */}
-                  {!zoomed && (
-                    <span className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/80 backdrop-blur-sm">
-                      click to zoom · scroll to zoom in
-                    </span>
-                  )}
                 </div>
 
                 {/* Nav buttons */}
@@ -258,6 +264,7 @@ export function Gallery({ images }: GalleryProps) {
                 >
                   <LuChevronRight className="size-5" />
                 </button>
+                </div>
 
                 {/* Bottom bar: dots + counter + zoom controls */}
                 <div className="mt-3 flex flex-col items-center gap-2.5">
