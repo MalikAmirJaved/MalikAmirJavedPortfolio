@@ -21,7 +21,7 @@ export const site = {
   stats: [
     { value: "5", label: "Live Systems" },
     { value: "2+", label: "Years Experience" },
-    { value: "3+", label: "Tech Stacks" },
+    { value: "10", label: "Tech Stacks" },
     { value: "1", label: "Desktop App" },
   ],
   openToWork: true,

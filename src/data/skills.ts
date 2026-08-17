@@ -44,7 +44,7 @@ export const skillGroups: SkillGroup[] = [
       "Redis",
       "Node.js",
       "Express.js",
-      "Go (basics)",
+      "Go (Echo v4)",
     ],
   },
   {
@@ -65,8 +65,8 @@ export const skillGroups: SkillGroup[] = [
     title: "Desktop",
     icon: SiElectron,
     skills: [
+      ".NET 10 / Avalonia (C#)",
       "Electron.js",
-      ".NET 10 / Avalonia (C#) — currently learning",
     ],
   },
   {

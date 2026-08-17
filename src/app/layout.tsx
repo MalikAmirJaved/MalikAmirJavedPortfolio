@@ -22,8 +22,10 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://malik-amir-javed-portfolio.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amirjaved.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name} — ${site.title}`,
     template: `%s — ${site.name}`,
@@ -47,15 +49,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://amirjaved.dev",
+    url: siteUrl,
     siteName: `${site.name} Portfolio`,
     title: `${site.name} — ${site.title}`,
     description: site.tagline,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.title}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.title}`,
     description: site.tagline,
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
 };
