@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
       "Implement Node.js/Express backends with Socket.IO for real-time data; MongoDB and PostgreSQL as databases",
       "Handle full Linux server deployment (Nginx, no CI/CD)",
       "Built cross-platform desktop application features using Electron.js",
-      "Currently engineering Alpha AI Tracker — a cross-platform desktop monitoring agent in .NET 10 / Avalonia (C#) with a Go REST API backend",
+      "Engineering Alpha AI Tracker for ClickMasters — a cross-platform employee monitoring system in .NET 10 / Avalonia (C#) with a Go REST API backend and Next.js admin dashboard.",
     ],
   },
   {

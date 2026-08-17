@@ -42,7 +42,7 @@ const terminalLines = [
   { cmd: "location", out: "Muzaffarabad, AJK, Pakistan" },
   { cmd: "status", out: "Open to opportunities", status: true },
   { cmd: "stack", out: "Django · React · Next · Node" },
-  { cmd: "current_build", out: "Alpha AI Tracker — desktop agent", cursor: true },
+  { cmd: "current_build", out: "Alpha AI Tracker @ ClickMasters", cursor: true },
 ];
 
 export function Hero() {

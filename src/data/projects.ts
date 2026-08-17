@@ -297,8 +297,8 @@ export const projects: Project[] = [
     category: "Desktop",
     tags: ["Desktop"],
     status: "In Progress — 2026–Present",
-    company: "Personal / Freelance Project",
-    companyType: "Personal",
+    company: "ClickMasters Digital Marketing Agency",
+    companyType: "ClickMasters Project",
     tech: [
       ".NET 10",
       "Avalonia",
